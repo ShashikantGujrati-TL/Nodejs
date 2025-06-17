@@ -4,7 +4,7 @@ const app = express();
 require("./db");
 const productRoute = require("./routes/product");
 const authRoute = require("./routes/auth");
-const path = require("path");
+const paths = require("path");
 /************ MIDDLEVARES *************/
 
 // Body parser middleware
@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("../frontend/build"));
 
   app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend", "build", "index.html"));
+    res.sendFile(paths.join(__dirname, "../frontend", "build", "index.html"));
   });
 }
 // listen to the port
